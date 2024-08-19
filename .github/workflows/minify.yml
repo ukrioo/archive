@@ -3,7 +3,7 @@ name: Sync, Minify and Push to Minified Branch
 on:
   push:
     branches:
-      - main  # Or your default branch
+      - main
 
 jobs:
   sync-minify:
@@ -18,11 +18,19 @@ jobs:
       with:
         node-version: '20'
 
-    - name: Install pnpm
+    - name: Install pnpm globally
       run: npm install -g pnpm
 
-    - name: Install minification tools locally
-      run: pnpm add -D html-minifier-terser clean-css-cli terser
+    - name: Cache pnpm store
+      uses: actions/cache@v3
+      with:
+        path: ~/.pnpm-store
+        key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-
+
+    - name: Install dependencies
+      run: pnpm install
 
     - name: Fetch all branches
       run: git fetch --all
@@ -31,11 +39,20 @@ jobs:
       run: |
         git checkout -B minified origin/main
 
-    - name: Minify HTML, CSS, and JS
-      run: |
-        find . -name "*.html" -exec npx html-minifier-terser --collapse-whitespace --remove-comments --minify-js true --minify-css true -o {} {} \;
-        find . -name "*.css" -exec npx cleancss -o {} {} \;
-        find . -name "*.js" -exec npx terser --compress --mangle --output {} -- {} \;
+    - name: Minify HTML
+      run: pnpm run minify:html &
+
+    - name: Minify CSS
+      run: pnpm run minify:css &
+
+    - name: Minify JS
+      run: pnpm run minify:js &
+
+    - name: Minify JSON
+      run: pnpm run minify:json &
+
+    - name: Wait for all minification tasks to finish
+      run: wait
 
     - name: Commit and Push Minified Files to Minified Branch
       env:
@@ -43,6 +60,6 @@ jobs:
       run: |
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
-        git add -A
-        git commit -m "Minified HTML, CSS, and JS"
-        git push --force "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/ukrioo/archive.git" minified
+        git add -u
+        git commit -m "Minified HTML, CSS, JS, and JSON"
+        git push --force "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/ukrioo/ukrioo.github.io.git" minified
