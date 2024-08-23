@@ -1,16 +1,78 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Archives - @ukriu</title>
-    <meta http-equiv="refresh" content="3;url=https://github.com/ukriu/archive" />
-      <script>
-         setTimeout(function () {
-            window.location.href = "https://github.com/ukriu/archive";
-         }, 1000);
-      </script>
-  </head>
-  <body style="background: black; color: lavenderblush; text-align: center; font-size: 2rem; overflow: hidden; justify-content: center; align-items: center; padding: 8px; font-family: Helvetica, Arial, sans-serif;">
-    You will be redirected to the GitHub page with all the accessible links!<br><br>
-    If you aren't redirected, <a style="color: violet; display: inline;" href="https://github.com/ukriu/archive">click here.</a>
-  </body>
+<html lang="en">
+   <head>
+      <title>ukriu!archive</title>
+      <link rel="stylesheet" type="text/css" href="https://ukriu.com/res/style.css">
+      <link rel="apple-touch-icon" sizes="180x180" href="https://ukriu.com/favicon/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="https://ukriu.com/favicon/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="https://ukriu.com/favicon/favicon-16x16.png">
+      <link rel="manifest" href="https://ukriu.com/favicon/site.webmanifest">
+   </head>
+   <body>
+      <style>
+         table {
+         margin: 0 auto;
+         border: lavenderblush solid 1px;
+         padding: 3px;
+         }
+         th, td {
+         text-align: center;
+         border: lavenderblush solid 1px;
+         padding: 4px;
+         }
+      </style>
+      <header>
+         <h1>ukriu!archive</h1>
+         <p>making myself suffer since ����</p>
+         <hr>
+      </header>
+      <main class="content" id="content">
+         <div class="content">
+            <p>This here is a list of archives for the various iterations of my website, this mostly exists so that I can realise how dumb I was and how dumb I still am.<br><br>I've tried my best to preserve my bad skills and keep the information as accurate too at the same time, so it won’t exactly be the same.</p>
+            <br>
+            <table>
+               <tr>
+                  <th>Version</th>
+                  <th>Active Link(s)</th>
+               </tr>
+               <tr>
+                  <td>V1</td>
+                  <td>Lost.</td>
+               </tr>
+               <tr>
+                  <td>V2</td>
+                  </td>
+                  <td>Gone.</td>
+               </tr>
+               <tr>
+                  <td>V3</td>
+                  <td><a href="https://archive.ukriu.com/v3">archive.ukriu.com/v3</a></td>
+               </tr>
+               <tr>
+                  <td>V4</td>
+                  <td><a href="https://archive.ukriu.com/v4">archive.ukriu.com/v4</a></td>
+               </tr>
+               <tr>
+                  <td>V5</td>
+                  <td><code>Current Version</code><br><a href="https://ukriu.com">ukriu.com</a></td>
+               </tr>
+            </table>
+         </div>
+      </main>
+      <footer>
+         <p style="text-align:center;">
+            <a id="playButton" href="#" onclick="event.preventDefault(); togglePlayPause();">
+            ~♫ 泣きながら「命に嫌われている。」歌ってみた【こはならむ】 ♫~
+            </a>
+         </p>
+         <audio id="audioPlayer" src="https://ukriu.com/res/media/bg.m4a" type="audio/m4a"></audio>
+         <hr>
+         <div id="container">
+            <div id="left">
+               <a class="link" href="https://ukriu.com/">go back</a>
+            </div>
+         </div>
+      </footer>
+      <script src="https://ukriu.com/res/audio.js"></script>
+   </body>
 </html>
