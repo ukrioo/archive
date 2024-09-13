@@ -1,0 +1,58 @@
+<DOCTYPE html>
+<html>
+   <head>
+      <title>About & Credits</title>
+      <link href="../img/android-chrome-512x512.png" rel="icon">
+      <link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
+      <style>
+         body {
+         background-color: #333;
+         color: white;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         height: 100vh;
+         flex-direction: column;
+         cursor: url('/cursor.cur'), default;
+         }
+         button {
+         background-color: #111;
+         border: none;
+         color: white;
+         padding: 15px 32px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 16px;
+         margin: 4px 2px;
+         cursor: pointer;
+         transition: background-color 0.3s;
+         cursor: url('/b_cursor.cur'), pointer;
+         }
+         button:hover {
+         background-color: #777;
+         }
+      </style>
+   </head>
+   <body>
+      <div style="text-align:center;">
+         <img src="../img/apple-touch-icon.png" alt="Icon" style="width:100px;height:100px;border-radius: 50%;">
+      </div>
+      <div style="text-align:center;">
+         <p>This is just a site with some games!<br></p>
+         <p>The games include:<br>
+            • Tetris<br>
+            • TicTacToe (Original)<br>
+            • Soon™<br>
+         </p>
+         <p>I was helped by [REDACTED] on TicTacToe</p>
+         <p></p>
+      </div>
+      <div style="text-align:center; margin-top:20px;">
+         <button onclick="window.location.href='/index.html';">Back To Home</button>
+      </div>
+      <script>
+         document.addEventListener('contextmenu', event => event.preventDefault());
+      </script>
+   </body>
+</html>
