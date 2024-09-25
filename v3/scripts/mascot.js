@@ -1,13 +1,1 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const randomImageNumber = Math.floor(Math.random() * 69) + 1;
-    const imageUrl = `../v3/styles/img/mascots/${randomImageNumber}.webp`;
-    const imgElement = document.getElementById('mascot');
-    imgElement.src = imageUrl;
-    imgElement.onload = function () {
-        console.log('Image loaded successfully!');
-    };
-    imgElement.onerror = function () {
-        console.error('Error loading image, setting fallback image.');
-        imgElement.src = '../v3/styles/img/m-fallback.webp';
-    };
-});
+document.addEventListener("DOMContentLoaded",(function(){const o=`../v3/styles/img/mascots/${Math.floor(69*Math.random())+1}.webp`,e=document.getElementById("mascot");e.src=o,e.onload=function(){console.log("Image loaded successfully!")},e.onerror=function(){console.error("Error loading image, setting fallback image."),e.src="../v3/styles/img/m-fallback.webp"}}));
